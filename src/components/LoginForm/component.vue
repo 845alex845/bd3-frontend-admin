@@ -14,13 +14,13 @@ data(){
 },
 methods:{
     signin(){
-        if(this.form.username=='fisi'){
+        // if(){
 
             return this.$router.push({ name: "home" });
-        }
-        else{
-            alert("usuario no registrado")
-        }
+        // }
+        // else{
+        //     alert("usuario no registrado")
+        // }
     }
 }
 
