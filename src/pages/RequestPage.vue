@@ -1,17 +1,17 @@
 <template>
   <dashboard-layout>
-<home-component></home-component>
+<request-component></request-component>
   </dashboard-layout>
 </template>
 
 <script>
-import HomeComponent from "../components/HomeComponent/component"
+import RequestComponent from "../components/RequestComponent/component"
 import dashboard from "../layouts/dashboard"
 export default {
-    name:'HomePage',
+    name:'RequestPage',
     components:{
     "dashboard-layout":dashboard,
-    "home-component":HomeComponent
+    "request-component":RequestComponent
     }
 }
 </script>
