@@ -1,7 +1,7 @@
 <template>
 <div class="layout">
   <div class="layout__navbar">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top" style="height:10vh">
     <a class="navbar-brand" href="#">Claro</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -37,16 +37,16 @@
   </nav>
     <main>
       <div class="layout__content">
-        <div class="container-fluid home">
+        <div class="container-fluid px-0 home ">
         <slot />
         </div>
       </div>
     </main>
-    <footer>
+    <!-- <footer>
         <div class="layout__footer">
 
         </div>
-    </footer>
+    </footer> -->
   </div>
 </div>
 </template>
@@ -68,7 +68,7 @@ export default {
       // }
     }
     &__content{
-      height: 1000px;
+      // height: 1000px;
       background-color: #E9EBEE;
       // .home{
       //   background-color: #fff;

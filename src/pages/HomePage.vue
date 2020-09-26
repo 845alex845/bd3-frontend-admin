@@ -1,6 +1,6 @@
 <template>
   <dashboard-layout>
-<home-component></home-component>
+    <home-component></home-component>
   </dashboard-layout>
 </template>
 

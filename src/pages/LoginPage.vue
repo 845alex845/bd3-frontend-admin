@@ -1,14 +1,17 @@
 <template>
 <div class="login">
     <div class="login__content d-flex justify-content-center align-items-center">
-        <div class="col-md-6 border">       
+      <div class="col-8 contenedor d-flex justify-content-center align-items-center">
+        <div class="col-md-8 border d-flex justify-content-center align-items-center">
+          <login-form></login-form>
+        </div>  
+        <div class="col-md-4 ">       
             <div class="logo d-flex justify-center align-center">
                 <img src="@/assets/images/logo.png" alt="">
             </div>
         </div>
-        <div class="col-md-6">
-          <login-form></login-form>
-        </div>    
+      </div>
+  
     </div>
 </div>
 </template>
@@ -30,9 +33,13 @@ export default {
 <style lang="scss" scoped>
 .login{
   height: 100vh;
-  background-color:#c7bbbb;
+  background-color:#DC281E;
   &__content{
   height: 100vh;
+  .contenedor{
+height: 85vh;
+background: #fff;
+  }
     .logo{
       img{
         width: 60%;
