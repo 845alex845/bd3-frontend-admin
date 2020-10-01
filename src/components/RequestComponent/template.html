@@ -1,3 +1,71 @@
-<div class="">
-    AQUI SE CREA LA VISTA DE SOLICITUDES
+<div  style="background-color: #fff;">
+    <div class="col-12 d-flex justify-center pt-0" >
+        <img src="https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/dbd8cd25-2fa8-4bdd-aa74-d526f8c9ca67-75_1240x340.jpg" class="img-fluid" alt="" style="height: 250px;" >
+    </div>
+    <div class="d-flex justify-center ">
+        <div class="col-10 request border">
+            <div class="text-center">
+                <p class="head">¿Tuviste un inconveniente con nosotros?</p>
+                <p class="subtitle">Selecciona el tema asociado</p>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <v-card style="min-height: 200px; border-radius: 1x;"  class="btn card-scaled" @click="createProblemOption(Servicio)">
+                        <div class="p-3">
+                            <div class="text-center">
+                                <img src="@/assets/images/icon_servicio.svg" alt="">
+                                <p class="title mt-2">Servicio</p>
+                            </div>      
+                            <div class="content">
+                                <p>Registra aquí tus reclamos sobre:</p>
+                                <ul class="mt-3 text-left">
+                                    <li>Señal en llamadas o internet.</li>
+                                    <li>Estas en desacuerdo con tu recibo.</li>
+                                    <li>Otros inconvenientes con tus servicios.</li>
+                                </ul>
+                            </div>      
+                        </div>
+                    </v-card>
+                </div>
+                <div class="col-4">
+                    <v-card style="min-height: 200px; border-radius: 1x;"  class="btn card-scaled" @click="createProblemOption('Atención')">
+                        <div class="p-3">
+                            <div class="text-center">
+                                <img src="@/assets/images/icon_llamada.png" alt="">
+                                <p class="title mt-2">Atención</p>
+                            </div>      
+                            <div class="content">
+                                <p>Registra aquí tus reclamos sobre:</p>
+                                <ul class="mt-3 text-left">
+                                    <li>Señal en llamadas o internet.</li>
+                                    <li>Estas en desacuerdo con tu recibo.</li>
+                                    <li>Otros inconvenientes con tus servicios.</li>
+                                </ul>
+                            </div>      
+                        </div>
+                    </v-card>
+                </div>
+                <div class="col-4">
+                    <v-card style="min-height: 200px; border-radius: 1x;" class="btn card-scaled" @click="createProblemOption('Producto')">
+                        <div class="p-3">
+                            <div class="text-center">
+                                <img src="@/assets/images/icon_producto.svg" alt="">
+                                <p class="title mt-2">Producto</p>
+                            </div>      
+                            <div class="content">
+                                <p>Registra aquí tus reclamos sobre:</p>
+                                <ul class="mt-3 text-left">
+                                    <li>Señal en llamadas o internet.</li>
+                                    <li>Estas en desacuerdo con tu recibo.</li>
+                                    <li>Otros inconvenientes con tus servicios.</li>
+                                </ul>
+                            </div>      
+                        </div>
+                    </v-card>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    <option-modal ref="createOptionProblem"></option-modal>
 </div>

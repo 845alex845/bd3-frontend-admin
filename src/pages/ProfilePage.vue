@@ -1,17 +1,17 @@
 <template>
   <dashboard-layout>
-    <post-component></post-component>
+    <profile-component></profile-component>
   </dashboard-layout>
 </template>
 
 <script>
-import PostComponent from "../components/PostComponent/component"
+import ProfileComponent from "../components/ProfileComponent/component"
 import dashboard from "../layouts/dashboard"
 export default {
-    name:'PostPage',
+    name:'ProfilePage',
     components:{
     "dashboard-layout":dashboard,
-    "post-component":PostComponent
+    "profile-component":ProfileComponent
     }
 }
 </script>

@@ -4,8 +4,13 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify';
 import "@/assets/styles/index.scss"
-Vue.config.productionTip = false
+import Storage from 'vue-web-storage';
 
+Vue.config.productionTip = false
+Vue.use(Storage, {
+  prefix: 'app_', // default `app_`
+  drivers: ['session', 'local'], // default 'local'
+});
 new Vue({
   router,
   store,

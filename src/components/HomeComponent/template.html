@@ -1,20 +1,18 @@
 <div class="d-flex home">
-    <section class="col-2  home__menu " >
-    </section>
     <section class="col-8 home__principal">
         <div class="row justify-content-around">
-            <div class="col-7 post" >
+            <div class="col-10 post" >
                 <v-card style="min-height: 150px; border-radius: 5px;" >
                     <div class="d-flex" style="background-color: #F4F8FB;">
-                        <div class="col-4 p-0 text-center"><p class="title mb-0 border-right border-bottom">Realizar publicación</p> </div>
-                        <div class="col-4 p-0 text-center"><p class="title mb-0 border-right border-bottom">Álbum de fotos/videos</p></div>
-                        <div class="col-4 p-0 text-center"><p class="title mb-0 border-bottom">Video en vivo</p></div>
+                        <div class="col-4 p-0 text-center  border-right border-bottom justify-center align-center d-flex"><v-icon>create</v-icon><p class="title mb-0 ">Realizar publicación</p> </div>
+                        <div class="col-4 p-0 text-center  border-right border-bottom justify-center align-center d-flex"><v-icon>collections</v-icon><p class="title mb-0 ">Álbum de fotos/videos</p></div>
+                        <div class="col-4 p-0 text-center border-bottom justify-center align-center d-flex"><v-icon>videocam</v-icon><p class="title mb-0 ">Video en vivo</p></div>
                     </div>
                     <div class="p-3">
                         <div class="d-flex align-center pb-5">
                             <img src="@/assets/images/userdefault.png" alt="usuario default" style="width: 35px; height: 35px;">
-                            <div class="">
-                                <p class="description">¿Qué estás pensando?</p>
+                            <div class="" >
+                                <p class="description" @click="createProblems(1)">¿Qué estás pensando?</p>
                             </div>
                         </div>
                         <div class="d-flex border-top pt-2">
@@ -34,275 +32,115 @@
                         </div>            
                     </div>
                 </v-card>
-                <div class="post-user">
+                <div class="post-user mt-3" v-for="item in problemList">
                     <v-card style="min-height: 150px; border-radius: 5px;" >            
                         <div class="py-2 px-4">
-                            <div class="d-flex align-center ">
+                            <div class="d-flex  align-center ">
                                 <img src="@/assets/images/userdefault.png" alt="usuario default" style="width: 35px; height: 35px;">
                                 <div class="title ml-1">
-                                    <p class="name-user">Rommel Alex Rojas Coaquira</p>
-                                    <p class="date">25 de septiembre del 2020</p>
+                                    <p class="name-user">{{item.user.firstname +' '+item.user.lastname}}</p>
+                                    <p class="date">{{item.date?formatDate(item.date):''}}</p>
+                                </div>
+                                <div class="category ml-auto  p-1">
+                                    <p style="font-weight: 600; color:#c00303">Categoría {{item.category}}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="">
-                            <div class="d-flex align-center " style="min-height: 50px; margin-bottom: 2px;">
-                            <img src="@/assets/images/post.png" class="img-fluid" alt="">
+                            <div class="px-2" style="min-height: 50px; ">
+                                <div class="mx-2">
+                                    <p class="body-title " style="font-size:1em; font-weight: 600;"> <img src="@/assets/images/logo.png" style="width:18px"alt=""> {{item.title}}</p>
+                                    <p class="body-content" style="font-size:0.85em ;">{{item.description}}</p>
+                                </div>
+                                <img :src="item.image?item.image:''" class="img-fluid mt-2" style="width: 100%;" alt="" if="item.image!=null">
                             </div>
-                            <div class="d-flex ">
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center align-center"style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">thumb_up</v-icon>
-                                    <p class="title ml-2">Me gusta</p> 
+                            <div class="d-flex">
+                                <div class="btn col-2 d-flex py-2 m-0 text-center border justify-center align-center"style="border-radius: 0;">
+                                    <p style="font-size: 0.95em; font-weight: 600; color:green" class="mr-2">{{item.usersWhoLike?item.usersWhoLike.length:0}}  </p> 
+                                    <v-icon color="green"style="font-size: 1.0em;">thumb_up</v-icon>
+                                </div>
+                                <div class="btn col-2 d-flex py-2 m-0 text-center border justify-center align-center"style="border-radius: 0;">
+                                    <v-icon color="red" style="font-size: 1.0em;">thumb_down</v-icon>
+                                    <p style="font-size: 0.95em;  font-weight: 600; color:red" class="ml-2">{{item.usersWhoDislike?item.usersWhoDislike.length:0}}  </p> 
                                 </div>
                                 <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center  align-center"style="border-radius: 0;">
                                     <v-icon style="font-size: 1.2em;">comment</v-icon>
-                                    <p class="title mb-0 ">Comentar</p>
+                                    <p class="title mb-0 ml-2 ">Comentar</p>
                                 </div>
                                 <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center  align-center" style="border-radius: 0;">
                                     <v-icon style="font-size: 1.2em;">share</v-icon>
-                                    <p class="title mb-0 ">Compartir</p>                                    
+                                    <p class="title mb-0 ml-2">Compartir</p>                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="py-3 px-3">
-                            <div class="d-flex align-center ">
+                        <!-- {{getComment(item._id)}} -->
+                        <div class="py-3 px-3" >
+                            <div class="d-flex align-center  pb-2 border-bottom">
                                 <img src="@/assets/images/userdefault.png" alt="logo default" style="width: 30px; height: 30px;">
-                                <div class="ml-2" style="width: 80%;">
-                                    <!-- AGREGAR COMENTARIO -->
+                                <div class="ml-2" style="width: 90%;">
                                     <v-text-field                                                                 
                                     hide-details
                                     dense
                                     rounded
                                     outlined
                                   ></v-text-field>
-                                  <!-- <div class="comment">
-                                        <textarea  class="border" style="resize: unset;">
-                                                ll
-                                        </textarea>
-                                  </div> -->
-                                  <!-- <v-textarea
-                                  color="#F0F2F5;"
-                                  style="min-height: 50px;"
-                                  height="1"
-                                  hide-details
-                                  dense
-                                  rounded
-                                  outlined
-                                  no-resize
-                                ></v-textarea> -->
                                 </div>
-                            </div>    
-                        </div>
-                    </v-card>
-                </div>
-                <div class="post-user mt-2">
-                    <v-card style="min-height: 150px; border-radius: 5px;" >            
-                        <div class="py-2 px-4">
-                            <div class="d-flex align-center ">
-                                <img src="@/assets/images/userdefault.png" alt="usuario default" style="width: 35px; height: 35px;">
-                                <div class="title ml-1">
-                                    <p class="name-user">Rommel Alex Rojas Coaquira</p>
-                                    <p class="date">25 de septiembre del 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="">
-                            <div class="d-flex align-center " style="min-height: 50px; margin-bottom: 2px;">
-                            <img src="@/assets/images/post1.png" class="img-fluid" alt="">
-                            </div>
-                            <div class="d-flex ">
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center align-center"style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">thumb_up</v-icon>
-                                    <p class="title ml-2">Me gusta</p> 
-                                </div>
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center  align-center"style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">comment</v-icon>
-                                    <p class="title mb-0 ">Comentar</p>
-                                </div>
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center  align-center" style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">share</v-icon>
-                                    <p class="title mb-0 ">Compartir</p>                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="py-3 px-3">
-                            <div class="d-flex align-center ">
-                                <img src="@/assets/images/userdefault.png" alt="logo default" style="width: 30px; height: 30px;">
-                                <div class="ml-2" style="width: 80%;">
-                                    <!-- AGREGAR COMENTARIO -->
+                            </div>   
+                            <div class="d-flex align-center mt-2 ml-3">
+                                <img src="https://www.nitro.pe/images/2019/enero/mario_hart_auto.jpg" alt="logo default" style="width: 45px; height: 45px; border-radius: 50%;">
+                                <div class="ml-2 " style="width: 90%;">
+                                    <p style="font-size: 0.8em;font-weight: 600;">Mario Hart</p>
                                     <v-text-field                                                                 
                                     hide-details
+                                    value="Así te quería agarra puerca. :,v"
                                     dense
                                     rounded
                                     outlined
                                   ></v-text-field>
-                                  <!-- <div class="comment">
-                                        <textarea  class="border" style="resize: unset;">
-                                                ll
-                                        </textarea>
-                                  </div> -->
-                                  <!-- <v-textarea
-                                  color="#F0F2F5;"
-                                  style="min-height: 50px;"
-                                  height="1"
-                                  hide-details
-                                  dense
-                                  rounded
-                                  outlined
-                                  no-resize
-                                ></v-textarea> -->
                                 </div>
-                            </div>    
-                        </div>
-                    </v-card>
-                </div>
-                <div class="post-user mt-2">
-                    <v-card style="min-height: 150px; border-radius: 5px;" >            
-                        <div class="py-2 px-4">
-                            <div class="d-flex align-center ">
-                                <img src="@/assets/images/userdefault.png" alt="usuario default" style="width: 35px; height: 35px;">
-                                <div class="title ml-1">
-                                    <p class="name-user">Rommel Alex Rojas Coaquira</p>
-                                    <p class="date">25 de septiembre del 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="">
-                            <div class="d-flex align-center " style="min-height: 50px; margin-bottom: 2px;">
-                            <img src="@/assets/images/post3.png" class="img-fluid" alt="">
-                            </div>
-                            <div class="d-flex ">
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center align-center"style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">thumb_up</v-icon>
-                                    <p class="title ml-2">Me gusta</p> 
-                                </div>
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center  align-center"style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">comment</v-icon>
-                                    <p class="title mb-0 ">Comentar</p>
-                                </div>
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center  align-center" style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">share</v-icon>
-                                    <p class="title mb-0 ">Compartir</p>                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="py-3 px-3">
-                            <div class="d-flex align-center ">
-                                <img src="@/assets/images/userdefault.png" alt="logo default" style="width: 30px; height: 30px;">
-                                <div class="ml-2" style="width: 80%;">
-                                    <!-- AGREGAR COMENTARIO -->
+                            </div> 
+                            <div class="d-flex align-center mt-2 ml-3">
+                                <img src="https://www.nitro.pe/images/2019/enero/mario_hart_auto.jpg" alt="logo default" style="width: 45px; height: 45px; border-radius: 50%;">
+                                <div class="ml-2 " style="width: 90%;">
+                                    <p style="font-size: 0.8em;font-weight: 600;">Mario Hart</p>
                                     <v-text-field                                                                 
                                     hide-details
+                                    value="Así te quería agarra puerca. :,v"
                                     dense
                                     rounded
                                     outlined
                                   ></v-text-field>
-                                  <!-- <div class="comment">
-                                        <textarea  class="border" style="resize: unset;">
-                                                ll
-                                        </textarea>
-                                  </div> -->
-                                  <!-- <v-textarea
-                                  color="#F0F2F5;"
-                                  style="min-height: 50px;"
-                                  height="1"
-                                  hide-details
-                                  dense
-                                  rounded
-                                  outlined
-                                  no-resize
-                                ></v-textarea> -->
                                 </div>
-                            </div>    
-                        </div>
-                    </v-card>
-                </div>
-                <div class="post-user mt-2">
-                    <v-card style="min-height: 150px; border-radius: 5px;" >            
-                        <div class="py-2 px-4">
-                            <div class="d-flex align-center ">
-                                <img src="@/assets/images/userdefault.png" alt="usuario default" style="width: 35px; height: 35px;">
-                                <div class="title ml-1">
-                                    <p class="name-user">Rommel Alex Rojas Coaquira</p>
-                                    <p class="date">25 de septiembre del 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="">
-                            <div class="d-flex align-center " style="min-height: 50px; margin-bottom: 2px;">
-                            <img src="@/assets/images/post4.png" class="img-fluid" alt="">
-                            </div>
-                            <div class="d-flex ">
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center align-center"style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">thumb_up</v-icon>
-                                    <p class="title ml-2">Me gusta</p> 
-                                </div>
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center  align-center"style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">comment</v-icon>
-                                    <p class="title mb-0 ">Comentar</p>
-                                </div>
-                                <div class="btn col-4 d-flex py-2 m-0 text-center border justify-center  align-center" style="border-radius: 0;">
-                                    <v-icon style="font-size: 1.2em;">share</v-icon>
-                                    <p class="title mb-0 ">Compartir</p>                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="py-3 px-3">
-                            <div class="d-flex align-center ">
-                                <img src="@/assets/images/userdefault.png" alt="logo default" style="width: 30px; height: 30px;">
-                                <div class="ml-2" style="width: 80%;">
-                                    <!-- AGREGAR COMENTARIO -->
+                            </div> 
+                            <div class="d-flex align-center mt-2 ml-3">
+                                <img src="https://www.nitro.pe/images/2019/enero/mario_hart_auto.jpg" alt="logo default" style="width: 45px; height: 45px; border-radius: 50%;">
+                                <div class="ml-2 " style="width: 90%;">
+                                    <p style="font-size: 0.8em;font-weight: 600;">Mario Hart</p>
                                     <v-text-field                                                                 
                                     hide-details
+                                    value="Así te quería agarra puerca. :,v"
                                     dense
                                     rounded
                                     outlined
                                   ></v-text-field>
-                                  <!-- <div class="comment">
-                                        <textarea  class="border" style="resize: unset;">
-                                                ll
-                                        </textarea>
-                                  </div> -->
-                                  <!-- <v-textarea
-                                  color="#F0F2F5;"
-                                  style="min-height: 50px;"
-                                  height="1"
-                                  hide-details
-                                  dense
-                                  rounded
-                                  outlined
-                                  no-resize
-                                ></v-textarea> -->
                                 </div>
-                            </div>    
+                            </div> 
                         </div>
                     </v-card>
                 </div>
-            </div>
-            <div class="col-4 ">
-                <v-card style="min-height: 60px; border-radius: 1x;"  >
-                    <div class="p-3">
-                        <div class="d-flex align-center ">
-                            <!-- <img src="@/assets/images/logo.png" alt="logo default" style="width: 30px; height: 30px;"> -->
-                            <div class="">
-                                <p class="welcome">!Hola¡  !Bienvenido a nuestra comunidad¡</p>
-                            </div>
-                        </div>            
-                    </div>
-                </v-card>
-                <v-card style="min-height: 250px; border-radius: 1x;"  class="my-2">
-                    <div class="p-3">
-                        <div class="d-flex align-center ">
-                            <!-- <img src="@/assets/images/logo.png" alt="logo default" style="width: 30px; height: 30px;"> -->
-                            <div class="">
-                                <p class="welcome">!Hola¡  !Bienvenido a nuestra comunidad¡</p>
-                            </div>
-                        </div>            
-                    </div>
-                </v-card>
             </div>
         </div>
     </section>
-    <section class="col-2 home__menu">
-    </section>
+    <section class="col-4">
+        <v-card style="min-height: 250px; border-radius: 1x;"  class="my-4">
+            <img src="https://claro.interactive.social/26619/1123905/pages/0b584148-49df-4170-8ef2-48e76bcfca06-at1600.jpg" class="img-fluid" alt="">
+        </v-card>            
+        <v-card style="min-height: 250px; border-radius: 1x;"  class="my-4">
+            <img src="https://i.pinimg.com/originals/84/c3/b7/84c3b72b8e3b38e8e55e40d8f6085afc.jpg" class="img-fluid" alt="">
+        </v-card>            
+        <v-card style="min-height: 60px; border-radius: 1x;"  >
+           <img src="@/assets/images/home1.jpg" class="img-fluid" alt="">
+        </v-card>
+  </section>
+  <problem-modal ref="createProblemModal"></problem-modal>
 </div>

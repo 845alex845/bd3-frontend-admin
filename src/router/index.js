@@ -22,6 +22,19 @@ const routes = [{
         component: () =>
             import ( /* webpackChunkName: "RequestPage" */ '../pages/RequestPage.vue')
     },
+    {
+        path: '/post',
+        name: 'post',
+        component: () =>
+            import ( /* webpackChunkName: "PostPage" */ '../pages/PostPage.vue')
+    },
+    {
+        path: '/profile',
+        name: 'profile',
+        component: () =>
+            import ( /* webpackChunkName: "ProfilePage" */ '../pages/ProfilePage.vue')
+    },
+
 ]
 
 const router = new VueRouter({

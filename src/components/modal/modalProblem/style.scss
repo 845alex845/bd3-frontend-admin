@@ -1,0 +1,30 @@
+.post{
+    .gaa{
+        :focus{
+            background-color: black;
+        }
+    }
+    .category{ 
+        // :focus{
+        // background-color: #d42035 ;
+        //     color: #fff;
+        // }       
+        :hover{
+            background-color: #d42035;
+            color: #fff;
+        }
+    }
+    .title{
+        font-size: 0.75em !important;
+    }
+    .description{
+        font-size: 0.85em;
+        color: #aeb0b4;
+        margin-left: 15px;
+    }
+    .welcome{
+        font-size: 0.85em;
+        margin-left: 15px;
+        font-weight: 500;
+    }
+}
