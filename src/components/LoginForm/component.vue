@@ -15,20 +15,20 @@ data(){
 },
 methods:{
     async signin(){
-        // if(){
             try {
                 console.log(this.form)
                 let response = await UserService.login(this.form);
-                console.log("GAa")
-                console.log(response)
+                console.log(response.data)
+                if(response.data.ok==true){    
+                this.$localStorage.set("currentUser_claro", response.data.user); 
+                return this.$router.push({ name: "home" });
+                }
+
             } catch (error) {
                 console.log(error);
             }
-            return this.$router.push({ name: "home" });
-        // }
-        // else{
-        //     alert("usuario no registrado")
-        // }
+            
+             
     }
 }
 

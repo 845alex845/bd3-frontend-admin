@@ -1,0 +1,53 @@
+<v-dialog v-model='dialog' width="580" style="min-height:280px;">
+    <v-card class="pb-5 post" style="min-height:280px;border-radius: 8px;">
+        <div class="d-flex category" style="background-color: #F4F8FB;">
+            <div class="col-3 btn p-0 text-center border-right border-bottom justify-center align-center d-flex "><v-icon>miscellaneous_services</v-icon><p class="title mb-0 ml-1">Servicio</p> </div>
+            <div class="col-3 btn p-0 text-center border-right border-bottom justify-center align-center d-flex " ><v-icon>public</v-icon><p class="title mb-0 ml-1">Internet</p></div>
+            <div class="col-3 btn p-0 text-center border-right border-bottom justify-center align-center d-flex "><v-icon>stay_primary_portrait</v-icon><p class="title mb-0 ml-1">Producto</p></div>
+            <div class="col-3 btn p-0 text-center border-bottom justify-center align-center d-flex "><v-icon>sim_card</v-icon><p class="title mb-0 ml-1">Chip</p></div>
+        </div>
+        <div class="px-3 mb-5">
+            <div class="d-flex align-center pb-5">
+                <img src="@/assets/images/userdefault.png" alt="usuario default" style="width: 35px; height: 35px;">
+                <div class="" style="width: 90%;" >
+                    <div class="ml-3 d-flex align-end" >
+                        <!-- <p class="mr-3">Título:</p> -->
+                        <v-text-field 
+                        label="Título."
+                        style="font-weight: 600;"
+                        hide-details
+                        color="#626262"
+                        v-model="form.title"
+                        > 
+                        </v-text-field>                   
+                    </div>
+                    <div class="ml-3 mt-5" >
+                        <v-textarea
+                        v-model="form.description"
+                        color="#626262"
+                        label="Agrege una descripción."
+                        auto-grow
+                        hide-details
+                        rows="1"
+                        row-height="8"
+                      ></v-textarea>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="d-flex justify-content-around border-bottom border-top py-2">
+                <v-chip small class="d-flex"><v-icon>photo_camera</v-icon><p class="ml-1">Foto/video</p></v-chip>
+                <v-chip small class="mx-2"><v-icon>sentiment_very_satisfied</v-icon><p class="ml-1">Sentimiento/actividad</p></v-chip>
+                <v-chip small class="mx-2"><v-icon>place</v-icon><p class="ml-1">Estoy aquí</p></v-chip>
+                <v-chip small ><p>...</p></v-chip>
+            </div>
+
+        </div>
+        <div class="px-3 ">
+            <div class="d-flex justify-end mr-10 ">
+                <v-btn small color="#D8D8D8" @click="submit"><p>Publicar</p></v-btn>
+            </div>
+        </div>
+
+    </v-card>
+</v-dialog>

@@ -1,0 +1,67 @@
+<div class="post"  style="background-color: #000;">
+    <div class="header  d-flex align-center " >
+        <h3 class="ml-4 mt-2 text-center" style="color: #fff; font-size: 1.5em;">Mis solicitudes</h3>
+    </div>
+        <v-row class=" text-center align-center justify-center">
+            <div class="col-12 p-0">
+              <v-simple-table fixed-header height="500px">
+                <template v-slot:default>
+                  <thead>
+                    <tr>
+                      <th class="text-center" style="width: 300px;">Tema</th>
+                      <th class="text-center">Categoría</th>
+                      <th class="text-center">Puntuación</th>
+                      <th class="text-center">Tipo</th>
+                      <th class="text-center">Fecha</th>
+                      <th class="text-center">Estado</th>
+                      <th class="text-center">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="item in postList" >
+                      <td class="text-center ">{{ item.title }}</td>
+                      <td class="text-center ">{{ item.category }}</td>
+                      <td class="text-center">{{ item.score }}</td>
+                      <td class="text-center">{{ item.isPrivate==true?'Privado':'Público' }}</td>
+                      <td class="text-center">{{ item.date.slice(0,10)}}</td>
+                      <td class="text-center">{{ item.process[item.process.length-1]}}</td>
+                      <td class="text-center">
+                        <v-btn small color="primary" @click.prevent="viewDetails(item)">
+                          <p class="mb-0">Ver detalles</p>
+                        </v-btn>
+                      </td>
+                    </tr>
+                  </tbody>
+                </template>
+              </v-simple-table>
+            </div>
+          </v-row>
+          <v-dialog v-model='dialog' width="800" style="min-height:400px;">
+            <v-card class="pb-5 " style="min-height:420px;border-radius: 8px; width: 100%;">
+               <div class="d-flex align-center px-2" style="width: 100%;">
+                   <div class="col-4 " style="height: 100%;">
+                   <p style="font-size: 1.2em; font-weight: 600;">{{form.title}}</p>
+                   <p style="font-size: 0.9em; ">{{form.description}}</p>
+                   <p style="font-size: 0.9em;font-weight: 600; color:#EE122C ;">Categoria:{{form.category}}</p>
+                   <p>{{form.type}}</p>
+                   <p style="font-size: 0.9em; ">Fecha:{{form.date}}</p>
+                   <p style="font-size: 0.9em; ">Tipo:{{form.isPrivate==true?'Privado':'Público'}}</p>
+                   <p style="font-size: 1.1em; font-weight: 600;">{{form.process?form.process[form.process.length-1]:''}}</p>
+                   </div>
+                   <div class="col-8 border-left" style="width: 100%;">
+                    <v-timeline color="">
+
+                        <v-timeline-item color="#EE122C" v-for="(item,i) in form.process" :key="i">{{item}}</v-timeline-item>
+                        <!-- <v-timeline-item color="#EE122C" class="text-right">Su solicitud está siendo vista por los administradores</v-timeline-item>
+                        <v-timeline-item color="#EE122C">Solicitud fue derivada a observación</v-timeline-item>
+                        <v-timeline-item color="#EE122C" class="text-right">Su solicitud está en proceso</v-timeline-item>
+                        <v-timeline-item color="#EE122C">Su solicitud está siendo atendida</v-timeline-item>
+                        <v-timeline-item color="#EE122C" class="text-right">Solicitud finalizada</v-timeline-item> -->
+                      </v-timeline>
+                      
+                   </div>
+
+               </div>
+            </v-card>
+          </v-dialog>
+</div>

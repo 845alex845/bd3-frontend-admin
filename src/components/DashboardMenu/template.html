@@ -1,0 +1,22 @@
+    <v-card style="height: 100%; border-radius: 1x;"  >
+        <v-list dense nav>
+            <v-subheader class="pt-8" style="font-size: 1.1em; font-weight: 600;">ATENCIÓN AL CLIENTE</v-subheader>
+            <v-divider></v-divider>
+            <v-list-item-group v-model="item" color="primary">
+              <v-list-item
+                v-for="(item, i) in items"
+                :key="i"
+              >
+              <router-link class="enlace d-flex " :to="{name:item.name}">
+                  <v-list-item-icon>
+                    <v-icon v-text="item.icon"></v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    <v-list-item-title v-text="item.text"></v-list-item-title>
+                  </v-list-item-content>
+            </router-link>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+       
+    </v-card>

@@ -1,8 +1,10 @@
 .home{
-    overflow-y: auto;
+    
     &__principal{
-        border-left: 1px solid #dcdfe4;
-        border-right: 1px solid #dcdfe4;
+        // height: 91vh;
+        // overflow-y: auto;
+        // border-left: 1px solid #dcdfe4;
+        // border-right: 1px solid #dcdfe4;
         .post{
             .title{
                 font-size: 0.75em !important;
@@ -31,75 +33,17 @@
                     color: #aeb0b4;
                     font-size: 0.8em;
                 }
+                .body-title{
+                    font-size: 2em;
+                    color: rgb(156, 24, 24);
+                }
+                .body-content{
+
+                }
             }
             .comment{
                 min-height: 60px;
             }
         }
     }
-    &__menu{
-        height: 90vh;
-        // background-color: #F0F2F5;
-    }
 }
-// .contenedor {
-//     padding: 50px 0;
-//     max-width: 450px;
-//     margin: auto;
-// }
-
-// .card img {
-//     width: 100px;
-//     height: 100px;
-//     object-fit: cover;
-//     border: 20px solid #fff;
-//     border-radius: 50%;
-//     display: block;
-// }
-
-// .card .nombre {
-//     color: #000000;
-//     padding: 30px;
-//     position: absolute;
-//     left: 50px;
-//     top: 0px;
-// }
-
-// .card>.nombre h3 {
-//     font-size: 16px;
-// }
-
-// .imagen img {
-//     border: black solid 1px;
-//     width: 100%;
-//     height: auto;
-// }
-
-// input:not([type="submit"]),
-// select {
-//     padding: 1rem;
-//     display: block;
-//     width: 100%;
-//     background-color: #e1e1e1;
-//     margin-bottom: 2rem;
-//     border: none;
-// }
-
-// .iconos-caracteristicas {
-//     list-style: none;
-//     padding: 0;
-//     display: flex;
-//     justify-content: space-evenly;
-//     flex: 1;
-//     max-width: 500px;
-// }
-
-// .iconos-caracteristicas li {
-//     display: flex;
-// }
-
-// .iconos-caracteristicas li img {
-//     margin-right: 10px;
-//     width: 30%;
-//     height: 30px;
-// }

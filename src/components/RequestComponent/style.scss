@@ -1,0 +1,27 @@
+.request{
+    .head{
+        font-size: 1.55em;
+        font-weight: 600;
+    }
+    .subtitle{
+        font-size: 0.95em;
+        font-weight: 600;
+    }
+    .title{
+        font-size: 1.2em !important;
+        font-weight: 600;
+    }
+    .card-scaled:hover{
+        transform: scale(1.02);
+        box-shadow: 1px 1px 3px 3px rgba(0,0,0,0.5);
+    }
+    .content{
+        p{
+            font-size: 0.82em!important;
+            font-weight: 600;
+        }
+        ul{
+            font-size: 0.78em;
+        }
+    }
+}

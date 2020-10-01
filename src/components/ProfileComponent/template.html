@@ -1,0 +1,109 @@
+<div class="">
+    <div class="d-flex justify-content-around">
+        <div class="col-5">           
+            <v-card style="min-height: 535px; border-radius: 5px;" >
+                <div class="p-3">
+                    <div class="d-flex align-center justify-center pb-5">
+                        <img src="@/assets/images/userdefault.png" alt="usuario default" style="width: 150px; height: 150px;">                     
+                    </div>
+                    <div class="">
+                        <v-text-field
+                        label="Nombres completos:"
+                        placeholder="John Doe"
+                        required
+                        readonly
+                        v-model="form.names"
+                      ></v-text-field>
+                      <v-text-field
+                        label="Dirección"
+                        placeholder="Snowy Rock Pl"
+                        required
+                        readonly
+                        v-model="form.address"
+                      ></v-text-field>
+                      <v-text-field                    
+                        label="Rol"
+                        placeholder="El Paso"
+                        required
+                        readonly
+                        v-model="form.role"
+                      ></v-text-field>
+                      <v-text-field                    
+                        label="Fecha de nacimiento:"
+                        placeholder="El Paso"
+                        required
+                        readonly
+                        v-model="form.date"
+                      ></v-text-field>
+                      <v-text-field                        
+                        label="Género"
+                        required
+                        placeholder="TX"
+                        readonly
+                        v-model="form.gender"
+                      ></v-text-field>
+                      <v-text-field
+                        label="Teléfono"
+                        required
+                        placeholder="79938"
+                        readonly
+                        v-model="form.phone"
+                      ></v-text-field>
+                    </div>    
+                </div>
+            </v-card>
+        </div>
+        <div class="col-6">
+            <v-card style="min-height: 280px; border-radius: 5px;" >
+                <div class="">
+                    <div class="d-flex ">
+                        <img src="https://images.locanto.com.pe/SERVICIOS-CLARO-POS-O-PRE-PAGO-LIMA/vap_5028240828.jpg" style="width: 100%;" alt="">
+                        <!-- <div class="col-4 border-right" style="height: 100%;">
+                            <p>Servicios Actuales</p>
+                            <p>Telefonia C75:</p>
+                            <p>Internet C75:</p>
+                            <p>Telefonia C75:</p>
+                            <p>Telefonia C75:</p>
+                        </div>
+                        <div class="col-8"></div> -->
+                    </div>
+                </div>
+            </v-card>
+            <div class="d-flex justify-center flex-wrap">
+                <v-card color="#EE122C" style="min-height: 50px; border-radius: 5px;" class="mt-2 col-3 mx-2" >
+                    <div class="p-3">
+                        <div class="text-center">
+                            <v-icon color="#fff" style="font-size: 2.5em;">public</v-icon>
+                            <p style="color: #fff; font-weight: 600; font-size: 1.0em;">Internet</p>
+                        </div>
+                    </div>
+                </v-card>
+                <v-card color="#EE122C" style="min-height: 50px; border-radius: 5px;" class="mt-2 col-3 mx-2" >
+                    <div class="p-3">
+                        <div class="text-center">
+                            <v-icon color="#fff" style="font-size: 2.5em;">phone</v-icon>
+                            <p style="color: #fff; font-weight: 600; font-size: 1.0em;">Telefonía</p>
+                        </div>
+                    </div>
+                </v-card>
+                <v-card color="#EE122C" style="min-height: 50px; border-radius: 5px;" class="mt-2 col-3 mx-2" >
+                    <div class="p-3">
+                        <div class="text-center">
+                            <v-icon color="#fff" style="font-size: 2.5em;">
+                                stay_current_portrait</v-icon>
+                            <p style="color: #fff; font-weight: 600; font-size: 1.0em;">Producto</p>
+                        </div>
+                    </div>
+                </v-card>
+                <v-card color="#EE122C" style="min-height: 50px; border-radius: 5px;" class="mt-2 col-3 mx-2" >
+                    <div class="p-3">
+                        <div class="text-center">
+                            <v-icon color="#fff" style="font-size: 2.5em;">tv</v-icon>
+                            <p style="color: #fff; font-weight: 600; font-size: 1.0em;">Cable</p>
+                        </div>
+                    </div>
+                </v-card>
+            </div>
+        </div>
+    </div>
+</div>
